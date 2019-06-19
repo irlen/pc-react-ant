@@ -151,6 +151,7 @@ class Detail extends Component{
             divArry.push(
               <div style={{background: "rgba(0,0,0,0.4)",borderRadius:"5px",overflow:"hidden"}} key={item.id} data-grid={compiledPosition}>
                 <TemplateForLine
+                  pageId={this.props.id}
                   autoHeight={compiledPosition?compiledPosition.h*30-10-70:13*30-10-70}
                   showViewData={_.cloneDeep(item)}
                   updateTime={this.state.updateTime}
@@ -162,6 +163,7 @@ class Detail extends Component{
             divArry.push(
               <div style={{background: "rgba(0,0,0,0.4)",borderRadius:"5px",overflow:"hidden"}} key={item.id} data-grid={compiledPosition} >
                 <TemplateForColumn
+                  pageId={this.props.id}
                   autoHeight={compiledPosition?compiledPosition.h*30-10-70:13*30-10-70}
                   showViewData={_.cloneDeep(item)}
                   updateTime={this.state.updateTime}
@@ -173,6 +175,7 @@ class Detail extends Component{
             divArry.push(
               <div style={{background: "rgba(0,0,0,0.4)",borderRadius:"5px",overflow:"hidden"}} key={item.id} data-grid={compiledPosition}>
                 <TemplateForTable
+                  pageId={this.props.id}
                   autoHeight={compiledPosition?compiledPosition.h*30-10-70:13*30-10-70}
                   showViewData={_.cloneDeep(item)}
                   updateTime={this.state.updateTime}
@@ -184,6 +187,7 @@ class Detail extends Component{
             divArry.push(
               <div style={{background: "rgba(0,0,0,0.4)",borderRadius:"5px",overflow:"hidden"}} key={item.id} data-grid={compiledPosition}>
                 <TemplateForPie
+                  pageId={this.props.id}
                   autoHeight={compiledPosition?compiledPosition.h*30-10-70:13*30-10-70}
                   showViewData={_.cloneDeep(item)}
                   updateTime={this.state.updateTime}
@@ -195,6 +199,7 @@ class Detail extends Component{
            divArry.push(
             <div style={{background: "rgba(0,0,0,0.2)",borderRadius:"5px",overflow:"hidden"}} key={item.id} data-grid={compiledPosition}>
               <TemplateForMap
+                pageId={this.props.id}
                 autoHeight={compiledPosition?compiledPosition.h*30-10-70:13*30-10-70}
                 showViewData={_.cloneDeep(item)}
                 updateTime={this.state.updateTime}
@@ -205,6 +210,7 @@ class Detail extends Component{
            divArry.push(
             <div style={{background: "rgba(0,0,0,0.2)",borderRadius:"5px",overflow:"hidden"}} key={item.id} data-grid={compiledPosition}>
               <TemplateForCalc
+                pageId={this.props.id}
                 autoHeight={compiledPosition?compiledPosition.h*30-10-70:13*30-10-70}
                 showViewData={_.cloneDeep(item)}
                 updateTime={this.state.updateTime}

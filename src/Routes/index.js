@@ -41,21 +41,17 @@ const ARoute = (props)=>(
     <Switch>
       <Route path='/login' exact component={  Login } />
       <Route path='/app' render={()=> <Layout />}/>
-      <Redirect from='/' to="/app/wholeview" />
+      <Redirect from='/' to="/login" />
     </Switch>
   </div>
 );
-
-
 export const AppRoute = withTheme(ARoute)
-
-
 export const SubRoute = () => (
     <div>
       {
        //总览
       }
-      <Route path='/app/wholeview'  render={()=> <WholeView />} />
+      <Route path='/app' exact render={()=> <WholeView />} />
       {
         //仪表板
       }

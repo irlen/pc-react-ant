@@ -8,7 +8,7 @@ const routeOne = [
     name:'总览',
     icon: 'fa fa-pie-chart',
     routes:[
-      { key:'/app/wholeview', path: '/app/wholeview', component:'../WholeView', name:'总览'},
+      { key:'/app', path: '/app', component:'../WholeView', name:'总览'},
     ]
   },
   {

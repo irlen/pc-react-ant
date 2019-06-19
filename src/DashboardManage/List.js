@@ -206,6 +206,28 @@ class List extends Component{
       })
     }
   }
+  //删除
+  delSource = ()=>{
+    if(this.state.ids.length === 0){
+      message.warning('请选择要删除的项')
+    }else{
+      wyAxiosPost('Dashboard/delDashboard',{ids: this.state.ids},(result)=>{
+        const responseData = result.data.msg
+        if(responseData.status === 1){
+          message.success(responseData.msg)
+          if(this._isMounted){
+            this.setState({
+              ids: []
+            },()=>{
+              this.getDashboardList()
+            })
+          }
+        }else{
+          message.warning(responseData.msg)
+        }
+      })
+    }
+  }
   componentWillUnmount(){
     this._isMounted = false
   }
