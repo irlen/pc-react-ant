@@ -11,10 +11,6 @@ import HandleSelf from './HandleSelf'
 const TabPane =  Tabs.TabPane
 
 class SystemBase extends Component {
-  state={
-
-
-  }
 
   render(){
     return(

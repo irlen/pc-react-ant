@@ -10,7 +10,6 @@ class NormalLoginForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
-      console.log(values)
       if (!err) {
         this.props.loginSubmit(values)
       }else{
@@ -19,22 +18,22 @@ class NormalLoginForm extends React.Component {
     });
   }
   componentDidMount(){
-    wyAxiosPost('User/checkUser',{},(result)=>{
-      if(result.data.msg.username){
-        const responseData = result.data.msg
-        this.props.form.setFieldsValue({
-          userName: responseData.username,
-          password: responseData.password,
-          remember: responseData.remember
-        })
-      }else{
-        this.props.form.setFieldsValue({
-          userName: '',
-          password: '',
-          remember: false
-        })
-      }
-    })
+    // wyAxiosPost('User/checkUser',{},(result)=>{
+    //   if(result.data.msg.username){
+    //     const responseData = result.data.msg
+    //     this.props.form.setFieldsValue({
+    //       username: responseData.username,
+    //       password: responseData.password,
+    //       remember: responseData.remember
+    //     })
+    //   }else{
+    //     this.props.form.setFieldsValue({
+    //       username: '',
+    //       password: '',
+    //       remember: false
+    //     })
+    //   }
+    // })
     this.inputRef.input.autofocus = true
   }
   render() {
@@ -42,10 +41,10 @@ class NormalLoginForm extends React.Component {
     return (
       <Form onSubmit={this.handleSubmit} className="login-form" style={{maxWidth:"300px"}}>
         <FormItem>
-          {getFieldDecorator('userName', {
+          {getFieldDecorator('username', {
             rules: [{ required: true, message: '请输入用户名!' }],
           })(
-            <Input ref={(input) => { this.inputRef = input }} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+            <Input ref={(input) => { this.inputRef = input }} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="username" />
           )}
         </FormItem>
 

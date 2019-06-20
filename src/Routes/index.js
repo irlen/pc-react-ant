@@ -10,8 +10,8 @@ import styled from '@emotion/styled'
 import { withTheme } from 'emotion-theming'
 import { userAuth } from '../components/UserAuth'
 
+import Authenticated from './Authenticated'
 import VerticFail from './VerticFail'
-import VerticSuccess from './VerticSuccess'
 
 import Login from '../Login'
 import Layout from '../Layout'

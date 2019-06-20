@@ -11,7 +11,6 @@ import { setAuth, getCompiledAuth } from '../actions'
 import Loginfrom from './loginform'
 import { userLogin } from '../actions'
 import { wyAxiosPost } from '../components/WyAxios'
-
 class LoginComponent extends React.Component {
   state={
     verificated: false
@@ -37,32 +36,25 @@ class LoginComponent extends React.Component {
   }
   //登陆提交事件
   loginSubmit = (values)=>{
-  //  this.props.history.push('/app')
     wyAxiosPost('User/login',values,(result)=>{
-      // const curTime = new Date().getTime()
-      // result.data.msg.curTime = curTime
-      // const responseData = JSON.stringify(result.data.msg)
-      // localStorage.setItem('userInfo', responseData)
-      // //做一个触发操作
-      // const _this = this
-      // const roleId = result.data.msg.role_id
-      //
-      // getCompiledAuth(roleId).then((value)=>{
-      //   _this.props.dispatch(setAuth(value))
-      //   localStorage.setItem('userAuth', JSON.stringify(value))
-      //   _this.props.history.push('/navremember')
-      // })
+      const responseData = result.data.msg
+      if(responseData.is_login){
+        localStorage['loginInfo'] = document.cookie
+        this.props.history.push('/app')
+      }else{
+        message.warning(responseData.msg)
+      }
     })
   }
   render(){
-    if(this.state.verificated){
-      return (
-        <Redirect to={{
-          pathname: '/app',
-          search: ''
-        }}/>
-      )
-    }else{
+    // if(this.state.verificated){
+    //   return (
+    //     <Redirect to={{
+    //       pathname: '/app',
+    //       search: ''
+    //     }}/>
+    //   )
+    // }else{
       return(
         <div className="loginContainer evntContainer" css={{position: "relative"}}>
         {
@@ -87,7 +79,7 @@ class LoginComponent extends React.Component {
           </div>
         </div>
       )
-    }
+    //}
   }
 }
 
